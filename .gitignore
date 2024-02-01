@@ -1,0 +1,11 @@
+# created by virtualenv automatically
+bin
+lib
+.idea
+lect
+sem
+__pycache__
+HW/hw_project/log/django.log
+HW/hw_project/db.sqlite3
+notice.txt
+pyvenv.cfg
