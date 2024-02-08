@@ -15,5 +15,6 @@ def about(request):
     return render(request, 'myapp/about.html')
 
 
-# def about(request):
-#     return HttpResponse("About us")
+def products(request):
+    logger.info("Products page accessed")
+    return pass
