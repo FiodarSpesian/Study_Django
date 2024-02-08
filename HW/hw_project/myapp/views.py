@@ -17,4 +17,4 @@ def about(request):
 
 def products(request):
     logger.info("Products page accessed")
-    return pass
+    return
