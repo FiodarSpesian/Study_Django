@@ -9,8 +9,8 @@ class User(models.Model):
     regist_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'Name: {self.name}\n Email: {self.email}\n ' \
-               f'Phone: {self.phone}\n Adress: {self.adress}\n'
+        return f'Name: {self.name} Email: {self.email} ' \
+               f'Phone: {self.phone} Adress: {self.adress}'
 
 
 class Product(models.Model):
@@ -21,7 +21,7 @@ class Product(models.Model):
     regist_prod_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Name: {self.name}\n Price: {self.price}'
+        return f'Name: {self.name} Price: {self.price}'
 
 
 class Order(models.Model):
@@ -30,5 +30,5 @@ class Order(models.Model):
     total_price = models.DecimalField(max_digits=8, decimal_places=2)
     date_ordered = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f'hw_project/myapp/models.py.__str__(self):'
+    # def __str__(self):
+    #     return f'hw_project/myapp/models.py.__str__(self):'
