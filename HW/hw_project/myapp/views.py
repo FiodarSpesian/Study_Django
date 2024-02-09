@@ -22,7 +22,7 @@ def customer_products(request, customer_id, count_days):
     order = Order.objects.filter(customer_id=customer.pk)
     temp = []
     for item in order:
-        temp.append(item.products.all(date))
+        temp.append(item.products.all())
     products = []
     for item in temp:
         for val in item:
