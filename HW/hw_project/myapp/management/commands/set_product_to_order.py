@@ -14,10 +14,11 @@ class Command(BaseCommand):
         order = Order.objects.filter(pk=kwargs.get('order_id')).first()
         product_id = kwargs.get('product_id')
         product = Product.objects.filter(pk=product_id).first()
-        # order.products.add(product)
+        order.products.add(product)
         total_price = 0
         products_from_order = order.products.all()  # вывод products по id заказа
         for prod in products_from_order:
             total_price += prod.price
-        # order.total_price.set(total_price) # надо исправить
-        self.stdout.write(f'{total_price}')
+        order.total_price = total_price # надо исправить
+        order.save()
+        # self.stdout.write(f'{total_price}')
