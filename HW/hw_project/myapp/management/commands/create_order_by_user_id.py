@@ -14,14 +14,6 @@ class Command(BaseCommand):
         customer = User.objects.filter(pk=kwargs.get('user_id')).first()
         product_id = kwargs.get('product_id')
         product = Product.objects.filter(pk=product_id).first()
-        price = getattr(product, "price")
-        order = Order(customer=customer, total_price=price)
-        # users = User.objects.filter(email__in=emails)
-        # instance = Setupuser.objects.create(organization=org)
-        #
-        # instance.emails_for_help.set(users)
-
-        # for i in range(1, count + 1):
-        #     user = User(name=f'User_{i}', email=f'mail{i}@mail.ru',
-        #                 phone=f'phone_{i}', adress=f'adress_{i}')
+        total_price = getattr(Product.objects.filter(pk=product_id).first(), "price")
+        order = Order(customer=customer, total_price=total_price)
         order.save()
