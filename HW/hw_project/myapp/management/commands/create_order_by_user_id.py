@@ -14,6 +14,6 @@ class Command(BaseCommand):
         customer = User.objects.filter(pk=kwargs.get('user_id')).first()
         product_id = kwargs.get('product_id')
         product = Product.objects.filter(pk=product_id).first()
-        total_price = getattr(Product.objects.filter(pk=product_id).first(), "price")
+        total_price = getattr(product, "price")
         order = Order(customer=customer, total_price=total_price)
         order.save()

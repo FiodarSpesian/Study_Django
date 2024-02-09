@@ -21,7 +21,7 @@ class Product(models.Model):
     regist_prod_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Name: {self.name} Price: {self.price}'
+        return f'Name: {self.name} Price: {self.price} Count: {self.count}'
 
 
 class Order(models.Model):

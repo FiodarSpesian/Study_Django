@@ -19,6 +19,7 @@ class Command(BaseCommand):
         products_from_order = order.products.all()  # вывод products по id заказа
         for prod in products_from_order:
             total_price += prod.price
-        order.total_price = total_price # надо исправить
+            # self.stdout.write(f'{prod}')
+        order.total_price = total_price
         order.save()
-        # self.stdout.write(f'{total_price}')
+        # self.stdout.write(f'{products_from_order}')
