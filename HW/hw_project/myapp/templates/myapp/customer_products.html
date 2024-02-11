@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ customer.name }}'s Products {% endblock %}
+
+{% block content %}
+    <h2>Заказанные товары за последние {{ count_days }}</h2>
+    <table>
+        {% for prod in products %}
+            <tr>
+                <td>{{ prod.name }}</td>
+                <td>{{ prod.description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

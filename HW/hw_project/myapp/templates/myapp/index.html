@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
     <h1>Добро пожаловать!</h1>
     <p>Мой первый сайт на Django</p>
-</body>
-</html>
+    <p>Это главная страница</p>
+{% endblock %}
