@@ -9,3 +9,4 @@ HW/hw_project/log/django.log
 HW/hw_project/db.sqlite3
 notice.txt
 pyvenv.cfg
+.DS_Store
