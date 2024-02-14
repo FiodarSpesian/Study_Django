@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import User, Product, Order
 from .forms import ProductFormWidget
-from django.core.files.storage import FileSystemStorage
+from django.core.files.storage import FileSystemStorage  # import нужный для работы с фалами
 
 logger = logging.getLogger(__name__)
 
@@ -45,10 +45,7 @@ def add_product(request):
             price = form.cleaned_data['price']
             count = form.cleaned_data['count']
             image = form.cleaned_data['image']
-            fs = FileSystemStorage()
-            fs.save(image.name, image)
             logger.info(f'Получили товар: {name=}, {price=}, {count=}.')
-            print(f'Получили {name=}, {price=}, {count=}.')
             product = Product(name=name, description=description, price=price, count=count, image=image)
             product.save()
             message = 'Пользователь сохранён'
