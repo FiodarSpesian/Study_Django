@@ -37,7 +37,7 @@ def customer_products(request, customer_id, count_days):
 
 def add_product(request):
     if request.method == 'POST':
-        form = ProductFormWidget(request.POST)
+        form = ProductFormWidget(request.POST, request.FILES)
         message = 'Ошибка в данных'
         if form.is_valid():
             name = form.cleaned_data['name']
