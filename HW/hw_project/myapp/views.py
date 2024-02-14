@@ -2,7 +2,7 @@ import logging
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import User, Product, Order
-from .forms import ProductFormWidget
+from .forms import ProductFormWidget, NewUser
 from django.core.files.storage import FileSystemStorage  # import нужный для работы с фалами
 
 logger = logging.getLogger(__name__)
@@ -37,7 +37,7 @@ def customer_products(request, customer_id, count_days):
 
 def add_product(request):
     if request.method == 'POST':
-        form = ProductFormWidget(request.POST, request.FILES)
+        form = ProductFormWidget(request.POST, request.FILES)  # request.FILES необходимо для загрузки файлов из формы
         message = 'Ошибка в данных'
         if form.is_valid():
             name = form.cleaned_data['name']
@@ -48,8 +48,21 @@ def add_product(request):
             logger.info(f'Получили товар: {name=}, {price=}, {count=}.')
             product = Product(name=name, description=description, price=price, count=count, image=image)
             product.save()
-            message = 'Пользователь сохранён'
+            message = 'Продукт добавлен'
     else:
         form = ProductFormWidget()
         message = 'Заполните форму'
     return render(request, 'myapp/add_product_form.html', {'form': form, 'message': message})
+
+
+def new_user(request):
+    if request.method == 'POST':
+        form = NewUser(request.POST, request.FILES)  # request.FILES необходимо для загрузки файлов из формы
+        message = 'Ошибка в данных'
+        if form.is_valid():
+            form.save()
+            message = 'Пользователь сохранён'
+    else:
+        form = NewUser()
+        message = 'Заполните форму'
+    return render(request, 'myapp/add_user_form.html', {'form': form, 'message': message})
