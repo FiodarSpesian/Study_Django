@@ -30,6 +30,9 @@ class Product(models.Model):
 class Status(models.Model):
     status = models.CharField(max_length=25)
 
+    def __str__(self):
+        return f'{self.status}'
+
 
 class Order(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
