@@ -11,3 +11,6 @@ HW/hw_project/db.sqlite3
 notice.txt
 pyvenv.cfg
 .DS_Store
+/HW/hw_project/log/
+*.sqlite3
+*.pyc
